@@ -46,9 +46,19 @@ class Screen
 
 class WindowManager
 {
+    public:
+    std::vector<int> addScreen();
+    
     private:
+    std::vector<int> number;
     std::vector<Screen> screens{Screen(24, 56, ' ')};               //in-class initializer
 };
+
+std::vector<int>
+WindowManager::addScreen()
+{
+    return {0};
+}
 
 inline                                      //specifying inline on the definition
 Screen &Screen::move(pos r, pos c)
