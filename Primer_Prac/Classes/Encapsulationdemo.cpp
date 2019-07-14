@@ -1,6 +1,6 @@
 #include <iostream>
 
-struct Base
+struct Sales_data
 {
     public:
     Sales_data() = default;

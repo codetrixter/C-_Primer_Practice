@@ -32,7 +32,7 @@ class Beta
     void getAccess(Alpha aa)
     {
         std::cout << aa.printMembers();             //can be accessed by a function having access to a private member.
-        std::cout << aa.a;                          //this cannot happen unless Beta is made friend of Alpha.
+        //std::cout << aa.a;                          //this cannot happen unless Beta is made friend of Alpha.
     }
 
     friend void printname(Alpha, Beta);
