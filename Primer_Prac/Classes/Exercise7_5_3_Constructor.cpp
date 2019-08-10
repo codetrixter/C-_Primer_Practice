@@ -4,7 +4,7 @@
 class NoDefault
 {
     public:
-    No_default(int val)
+    NoDefault(int val)
     {}
 };
 

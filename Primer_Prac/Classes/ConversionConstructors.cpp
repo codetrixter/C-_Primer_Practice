@@ -31,7 +31,7 @@ int main(int argc, char const *argv[])
 
     // Avenger avenge = 12;         //error: cannot convert int to Avenger
     //functionCall(12);             //error: cannot convert int to Avenger
-      function(12);                 //works as it is direct initialization
+      functionCall(12);                 //works as it is direct initialization
 
     //functionCall({12, 12.22});
     return 0;
