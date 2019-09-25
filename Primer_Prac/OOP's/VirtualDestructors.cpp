@@ -3,25 +3,15 @@ using namespace std;
 class Base
 {
     public:
-        virtual void t()=0;
-          ~Base()
+        virtual ~Base()
         {
             std::cout << "Base::destructor called" << std::endl;
         }
 };
- void Base::t()
-        {
-         std::cout<<"base virtual ";
-        }
+
 class Derived : public Base
 {
     public:
-        void t()
-        {
-
-             std::cout<<"Drived  virtual ";
-             Base::t();
-        }
         ~Derived()
         {
             std::cout << "Derived::destructor called" << std::endl;
@@ -30,9 +20,10 @@ class Derived : public Base
 
 int main(int argc, char const *argv[])
 {
-    Derived objDer;
-    Base *bobj = &objDer;
-    std::cout << sizeof(objDer);
-    delete bobj;
+    Base *baseobj = new Base();
+    delete baseobj;
+    baseobj = new Derived();
+    //std::cout << sizeof(objDer);
+    delete baseobj;
     return 0;
 }
