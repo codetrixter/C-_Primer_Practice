@@ -15,7 +15,7 @@ class destroyer
 
 class Abhishek
 {
-    // /Abhishek abhi;                  //gives error as the object can only be created after the class has been defined.
+    // Abhishek abhi;                  //gives error as the object can only be created after the class has been defined.
     Abhishek *abhiptr;              //same is not true for references and pointers.
     Abhishek &abhiref;
 };

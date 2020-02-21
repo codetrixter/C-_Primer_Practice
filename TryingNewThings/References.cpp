@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 
 void getName(const bool& status)
 {
@@ -6,6 +7,7 @@ void getName(const bool& status)
 }
 int main(int argc, char const *argv[])
 {
+    std::string s = "Abhishek";
     bool flag = true;
     getName(flag);
     return 0;

@@ -10,7 +10,7 @@ class Avenger
 
     // /Avenger(const std::string &str1 ): s1(str1) {}
 
-    //explicit Avenger(int xx): i(xx) {}
+    Avenger(int xx): i(xx) {}
     // Avenger(int abh, float fl): i(abh), ff(fl) {}
 
 };
