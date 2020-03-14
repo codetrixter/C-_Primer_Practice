@@ -1,38 +1,81 @@
 #include <iostream>
+#include <string>
 
-class swapping
+class HasPtr
 {
     public:
-        swapping() = default;
+        //constructor
+        HasPtr(const std::string &str = std::string()):
+        ps(new std::string(str)), i(0)
+        {}
 
-        swapping(const swapping &sw) = default;
+        //copy constructor
+        HasPtr(const HasPtr &hp):
+        ps(new std::string(*(hp.ps))), i(hp.i)
+        {}
 
-        swapping& operator=(swapping rhs)
+        //copy-assignment operator
+        HasPtr& operator=(const HasPtr&);
+
+        //swap overload
+        void swap(HasPtr &lhs, HasPtr &rhs)
         {
-            swap(*this, rhs);
-
-            return *this;
+            using std::swap;
+            swap(lhs.ps, rhs.ps);
+            swap(lhs.i, rhs.i);
         }
 
-        void swap(swapping &to, swapping &from)
+        //getter function
+        void getDetails()
         {
-            //swapping *toptr = to, *fromptr = from;
-            swapping *tempptr = &fromptr;
-            fromptr = toptr;
-            toptr = tempptr;
+          std::cout << *ps << '\t' << i << std::endl;
         }
-    
-    ~swapping()
-    {
-        std::cout << "Destruction...";
-    }
+
+        //setter function
+        void setDetails(int number)
+        {
+            i = number;
+        }
+
+        //destructor
+        ~HasPtr()
+        {
+            delete ps;
+        }
     private:
-        int a;
+        int i;
+        std::string *ps;
 };
+
+HasPtr& HasPtr::operator=(const HasPtr &rhs)
+{
+    //create a local temp object.
+    auto newptr = new std::string(*(rhs.ps));
+    //delete the lhs object, if we delete this pointer first and a self assignment is done, then there will be an error.
+    delete ps;
+    //copy the object from rhs to lhs
+    ps = newptr;
+    i = rhs.i;
+
+    return *this;
+}
 
 int main(int argc, char const *argv[])
 {
-    swapping sw1;
-    swapping sw2 = sw1;
+    HasPtr hp1("Abhishek");
+    HasPtr hp2("Ashish");
+    hp1.setDetails(100);
+    hp2.setDetails(1000);
+
+    std::cout << "Before swapping" << std::endl;
+    hp1.getDetails();
+    hp2.getDetails();
+
+    hp1.swap(hp1, hp2);
+
+    std::cout << "After swapping" << std::endl;
+    hp1.getDetails();
+    hp2.getDetails();
+
     return 0;
 }
