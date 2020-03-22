@@ -6,7 +6,9 @@
 // Valuelike version
 class HasPtr 
 {
+  //this wap is made friend becaause we want to access HasPtr private members from outside.
   friend void swap(HasPtr &, HasPtr &);
+  
 public:
   HasPtr(const std::string &s = std::string())
       : ps(new std::string(s)), i(0) {}
